@@ -43,6 +43,12 @@ namespace SchoolManagementApp.Project.Services
 
                 Console.WriteLine($"\nAssigned {className} to {moduleName}!");
             }
+            else if(input.StartsWith("print module"))
+            {
+                string moduleName = input.Split(" ")[2];
+
+                schoolservice.PrintModule(moduleName);
+            }
             else if (input.StartsWith("exit"))
             {
                 endProgram = true;

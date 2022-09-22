@@ -89,5 +89,20 @@ namespace SchoolManagementApp.Project.Services
 
             _moduleFileService.WriteFile(_modules);
         }
+
+        public void PrintModule(string moduleName)
+        {
+            var selectedModule = _modules.FirstOrDefault(x => x.Name == moduleName);
+
+            if(selectedModule == null)
+            {
+                Console.WriteLine($"Module name was incorrect or it does not exist! Module: {moduleName}");
+            }
+
+            var listClasses = _classes.FindAll(c => selectedModule.ClassIds.Contains(c.Id)).ToList<Class>();
+
+            Console.WriteLine("\n" + selectedModule.ToString());
+            listClasses.ForEach(x => Console.WriteLine("    " + x.ToString()));
+        }
     }
 }

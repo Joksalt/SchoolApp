@@ -1,9 +1,5 @@
 ﻿using SchoolManagementApp.Project.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SchoolManagementApp.Project.Extensions;
 
 namespace SchoolManagementApp.Project.Models
 {
@@ -14,6 +10,11 @@ namespace SchoolManagementApp.Project.Models
 
         public Module() : base()
         {
+        }
+
+        public override string ToString()
+        {
+            return string.Format($"[Id: {Id}], Name: {Name},\nDesription: {Description}\nCreated: {DateTimeExtension.ToFormatString(CreatedDate)}");
         }
     }
 }

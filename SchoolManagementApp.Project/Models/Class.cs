@@ -10,9 +10,10 @@ namespace SchoolManagementApp.Project.Models
     public class Class : EntityBase
     {
         public string Location { get; set; }
-        //public Class(string location) : base()
-        //{
-        //    Location = location;
-        //}
+
+        public override string ToString()
+        {
+            return String.Format($"[Id: {Id}] Name: {Name}");
+        }
     }
 }
