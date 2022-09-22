@@ -10,6 +10,7 @@ namespace SchoolManagementApp.Project.Models
     public class Module : EntityBase
     {
         public DateTime UpdateDate { get; set; }
+        public List<int> ClassIds { get; set; } = new List<int>();
 
         public Module() : base()
         {

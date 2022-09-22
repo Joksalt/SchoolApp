@@ -73,5 +73,21 @@ namespace SchoolManagementApp.Project.Services
                 _classFileService.WriteFile(_classes);
             }
         }
+
+        public void AssignClassToModule(string className, string moduleName)
+        {
+            var selectedModule = _modules.FirstOrDefault(m => m.Name == moduleName);
+            var selectedClass = _classes.FirstOrDefault(c => c.Name == className);
+
+            if(selectedClass == null || selectedModule == null)
+            {
+                Console.WriteLine($"Wrong class or module name!\nClass: {className}\nModule:{moduleName}\n");
+                return;
+            }
+
+            _modules.First(m => m.Name == moduleName).ClassIds.Add(selectedClass.Id);
+
+            _moduleFileService.WriteFile(_modules);
+        }
     }
 }

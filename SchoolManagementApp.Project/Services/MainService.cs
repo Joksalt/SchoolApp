@@ -15,22 +15,33 @@ namespace SchoolManagementApp.Project.Services
         {           
             endProgram = false;
 
-            if(input.StartsWith("add module"))
+            if (input.StartsWith("add module"))
             {
                 string name = input.Split(" ")[2];
                 string text = input.Split(" ")[3];
                 
                 schoolservice.AddModule(name, text);
-                Console.WriteLine($"Module {name} added!");
+
+                Console.WriteLine($"\nModule {name} added!");
             }
-            else if(input.StartsWith("add class"))
+            else if (input.StartsWith("add class"))
             {
                 string name = input.Split(" ")[2];
                 string text = input.Split(" ")[3];
                 string location = input.Split(" ")[4];
 
                 schoolservice.AddClass(name, text, location);
-                Console.WriteLine($"Class {name} added!");
+
+                Console.WriteLine($"\nClass {name} added!");
+            }
+            else if (input.StartsWith("assign class"))
+            {
+                string className = input.Split(" ")[2];
+                string moduleName = input.Split(" ")[3];
+
+                schoolservice.AssignClassToModule(className, moduleName);
+
+                Console.WriteLine($"\nAssigned {className} to {moduleName}!");
             }
             else if (input.StartsWith("exit"))
             {
