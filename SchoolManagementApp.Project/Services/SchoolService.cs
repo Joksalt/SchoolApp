@@ -9,8 +9,6 @@ namespace SchoolManagementApp.Project.Services
 {
     public class SchoolService
     {
-        private int ModuleId = 1;
-
         List<Module> _modules = new List<Module>();
         List<Class> _classes = new List<Class>();
 
@@ -31,12 +29,11 @@ namespace SchoolManagementApp.Project.Services
                 Console.WriteLine($"Module with name {selectedModule.Name} already exists!");
                 return;
             }
-
-            if(selectedModule == null)
+            else
             {
                 Module module = new Module()
                 {
-                    Id = GenerateModuleId(),
+                    Id = _modules.Count > 0 ? _modules.Select(x => x.Id).Max() + 1 : 1,
                     Name = name,
                     Description = text,
                     CreatedDate = DateTime.Now,
@@ -44,14 +41,9 @@ namespace SchoolManagementApp.Project.Services
                 };
 
                 _modules.Add(module);
-            }
 
-            moduleFileService.WriteFile(_modules);
-        }
-
-        private int GenerateModuleId()
-        {
-            return ModuleId++;
+                moduleFileService.WriteFile(_modules);
+            }            
         }
     }
 }
