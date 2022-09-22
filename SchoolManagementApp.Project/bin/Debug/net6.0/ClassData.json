@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "Location": "trys",
+    "Id": 1,
+    "Name": "vienas",
+    "CreatedDate": "2022-09-22T13:41:27.6408181+03:00",
+    "Description": "du"
+  },
+  {
+    "Location": "keturi",
+    "Id": 2,
+    "Name": "du",
+    "CreatedDate": "2022-09-22T13:41:37.7782507+03:00",
+    "Description": "trys"
+  }
+]

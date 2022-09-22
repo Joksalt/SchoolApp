@@ -23,6 +23,15 @@ namespace SchoolManagementApp.Project.Services
                 schoolservice.AddModule(name, text);
                 Console.WriteLine($"Module {name} added!");
             }
+            else if(input.StartsWith("add class"))
+            {
+                string name = input.Split(" ")[2];
+                string text = input.Split(" ")[3];
+                string location = input.Split(" ")[4];
+
+                schoolservice.AddClass(name, text, location);
+                Console.WriteLine($"Class {name} added!");
+            }
             else if (input.StartsWith("exit"))
             {
                 endProgram = true;
